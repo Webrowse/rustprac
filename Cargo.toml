@@ -1,6 +1,13 @@
 [workspace]
 members = [
 	"first_1",
-	"first_2",
+	"first_2", 
+	"first_3", 
+	"first_4", 
+	"first_5", 
+	"first_6", 
+	"first_7", 
+	"first_8", 
+	"first_9",
 
 ] 

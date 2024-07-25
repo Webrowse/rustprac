@@ -9,3 +9,31 @@ version = "0.1.0"
 [[package]]
 name = "first_2"
 version = "0.1.0"
+
+[[package]]
+name = "first_3"
+version = "0.1.0"
+
+[[package]]
+name = "first_4"
+version = "0.1.0"
+
+[[package]]
+name = "first_5"
+version = "0.1.0"
+
+[[package]]
+name = "first_6"
+version = "0.1.0"
+
+[[package]]
+name = "first_7"
+version = "0.1.0"
+
+[[package]]
+name = "first_8"
+version = "0.1.0"
+
+[[package]]
+name = "first_9"
+version = "0.1.0"
