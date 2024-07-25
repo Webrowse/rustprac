@@ -1,5 +1,5 @@
 [workspace]
-members = [
+members = [ "basicTypes_Numbers/numbers",
 	"first_1",
 	"first_2", 
 	"first_3", 
