@@ -15,15 +15,47 @@ fn main() {
 
     let c1 = '中'; //double quotes are string, single is char
     print_char(c1);
-} 
+
 
 fn print_char(c : char) {
     println!("{}", c);
 }
 
+//3.
+// Make println! work
+
+    let _f: bool = false;
+    
+    let t = true;
+    if t {
+        println!("Success!");
+    }
+
+//4.
+let f = true;
+let t = true || false; // changed && to ||
+assert_eq!(t, f);
+
+println!("Success!");
+
+//5.
+let _v: () = ();
+
+let v = (2, 3);
+assert_eq!(_v, implicitly_ret_unit());
+
+println!("Success!");
 
 
+fn implicitly_ret_unit() {
+println!("I will return a ()");
+}
 
+// Don't use this one
+fn explicitly_ret_unit() -> () {
+println!("I will return a ()");
 
+}
 
+}
 
