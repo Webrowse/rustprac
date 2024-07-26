@@ -1,3 +1,6 @@
+#[warn(unused_imports)]
+#[allow(unused_variables)]
+
 fn main() {
     use std::mem::size_of_val;
 
@@ -41,7 +44,7 @@ println!("Success!");
 //5.
 let _v: () = ();
 
-let v = (2, 3);
+//let v = (2, 3);
 assert_eq!(_v, implicitly_ret_unit());
 
 println!("Success!");
@@ -56,6 +59,17 @@ fn explicitly_ret_unit() -> () {
 println!("I will return a ()");
 
 }
+//6.
+
+// Modify `4` in assert to make it work
+//use std::mem::size_of_val;
+
+    let unit: () = ();
+    assert!(size_of_val(&unit) == 0);
+
+    println!("Success!4");
+
+//7.
 
 }
 
