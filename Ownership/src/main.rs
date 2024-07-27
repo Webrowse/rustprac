@@ -56,6 +56,29 @@ let sb: String = String::from("Hello ");
 
     println!("Success!6");
 
+    let x2: Box<i32> = Box::new(5);
+    
+    let mut y2:Box<i32> = Box::new(1);      
+    
+    *y2 = 4;
+    
+    assert_eq!(*x2, 5);
 
+    println!("Success!7");
+//8.
+let t3:(String, String) = (String::from("hello"), String::from("world8"));
+
+   let _s3: String = t3.0;
+
+   // Modify this line only, don't use `_s`
+   println!("{:?}", t3.1);
+
+   //9.
+   let t4 = (String::from("hello"), String::from("world9"));
+
+   // Fill the blanks
+   let (s1c, s2c) = t4.clone();
+
+   println!("{:?}, {:?}, {:?}", s1c, s2c, t4); // -> "hello", "world", ("hello", "world")
 
 }
