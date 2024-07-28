@@ -7,6 +7,10 @@ name = "Ownership"
 version = "0.1.0"
 
 [[package]]
+name = "borrowing"
+version = "0.1.0"
+
+[[package]]
 name = "char-bol-unit"
 version = "0.1.0"
 
