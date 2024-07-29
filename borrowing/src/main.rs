@@ -1,3 +1,4 @@
+#[allow(unused_variables)]
 fn main() {
     let x = 5;
     // Fill the blank
@@ -16,17 +17,33 @@ fn main() {
     println!("Success!2");
 
 //3.
-let mut s = String::from("hello, ");
+let s = String::from("hello, ");
 
 borrow_object(&s);
 
 println!("Success!3");
 
 //4.
+let mut s1 = String::from("hello, ");
 
+push_str( &mut s1);
 
+println!("Success!4");
+
+//5.
+let mut s = String::from("hello, ");
+
+// Fill the blank to make it work
+let p = &mut s;
+
+p.push_str("world");
+
+println!("Success!5");
 }
 //3.
-fn borrow_object(s: &String) {}
-
+fn borrow_object(_s: &String) {}
+//4.
+fn push_str(s1: &mut String) {
+    s1.push_str("world")
+}
 
