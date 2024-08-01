@@ -48,5 +48,18 @@ let s1 = String::from("hello,");
     assert_eq!(s3, "hello,world!");
     println!("{}", s1);
 
+    //7.
+    
+    let s: String = String::from("hello, world7");
+    //let s = "hello, world";
+    greetings7(s);
+    // greetings7(&s)
+    // greetings7(s.to_string()) ... Changes to string
+
+//8.
+let s = "hello, world".to_string();
+let s1: &str = s.as_str();
+
+println!("Success!8");
 
 }
