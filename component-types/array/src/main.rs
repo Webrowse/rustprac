@@ -27,10 +27,30 @@ let list: [i32; 100] = [1; 100] ;
 
     println!("Success!3");
 
+//4.
+let _arr = [1, 2, 3];
 
+println!("Success!4");
 
+//5.
+let arr = ['a', 'b', 'c'];
+    
+let ele = arr[0]; // Only modify this line to make the code work!
 
+assert!(ele == 'a');
 
+println!("Success!5");
+
+//6.
+let names = [String::from("Sunfei"), "Sunface".to_string()];
+    
+// `Get` returns an Option<T>, it's safe to use
+let name0 = names.get(0).unwrap();
+
+// But indexing is not safe
+let _name1 = &names[1];
+
+println!("Success!6");
 
 
 
