@@ -117,4 +117,11 @@ println!("Success!11");
  for c in "你好，世界".chars() {
     println!("{}", c)
 }
+// use utf8_slice;
+// fn main() {
+//     let s = "The 🚀 goes to the 🌑!";
+
+//     let rocket = utf8_slice::slice(s, 4, 5);
+//     // Will equal "🚀"
+// }
 }
