@@ -1,5 +1,5 @@
 [workspace]
-members = [ "Ownership", "basicTypes_Numbers/char-bol-unit", "basicTypes_Numbers/functions", "basicTypes_Numbers/numbers", "basicTypes_Numbers/statement-expression", "borrowing", "component-types/array", "component-types/slice", "component-types/string", "component-types/tuple",
+members = [ "Ownership", "basicTypes_Numbers/char-bol-unit", "basicTypes_Numbers/functions", "basicTypes_Numbers/numbers", "basicTypes_Numbers/statement-expression", "borrowing", "component-types/array", "component-types/slice", "component-types/sstruct", "component-types/string", "component-types/tuple",
 	"first_1",
 	"first_2", 
 	"first_3", 

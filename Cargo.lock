@@ -67,6 +67,10 @@ name = "slice"
 version = "0.1.0"
 
 [[package]]
+name = "sstruct"
+version = "0.1.0"
+
+[[package]]
 name = "statement-expression"
 version = "0.1.0"
 
