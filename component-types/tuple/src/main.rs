@@ -10,7 +10,7 @@ fn main() {
 
     println!("Success!1");
 //2.
-let t = ("i", "am", "sunface");
+let t: (&str, &str, &str) = ("i", "am", "sunface");
 assert_eq!(t.2, "sunface");
 
 println!("Success!2");
@@ -18,7 +18,7 @@ println!("Success!2");
 let too_long_tuple = (1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12);
     println!("too long tuple: {:?}", too_long_tuple);
 //4.
-let tup = (1, 6.4, "hello");
+let tup: (i32, f64, &str) = (1, 6.4, "hello");
 
 // Fill the blank to make the code work
 let (x,z,y) = tup;
