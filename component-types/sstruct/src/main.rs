@@ -43,10 +43,10 @@ let mut p = Person {
     hobby: String::from("coding"),
 };
 
-// How can you believe sunface is only 18? 
+
 p.age = 30;
 
-// Fill the blank
+
 p.name = String::from("sunfei");
 
 println!("Success!{} and {}", p.name, p.age);
