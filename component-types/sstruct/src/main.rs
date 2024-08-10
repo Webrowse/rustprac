@@ -86,29 +86,16 @@ dbg!(&rect1); // Print debug info to stderr
 println!("{:?}", rect1); // Print debug info to stdout
 
 //8
-#[derive(Debug)]
-struct Person {
-    name: String,
-    age: Box<u8>,
-}
 
-let person: Person = Person {
-    name: String::from("Alice"),
-    age: Box::new(20),
+let f = File {
+    name: String::from("readme.md"),
+    data: "Rust By Practice".to_string()
 };
 
-// `name` is moved out of person, but `age` is referenced
-let Person { name, ref age } = person;
+let _name = f.name.clone();
 
-println!("The person's age is {}", age);
-
-println!("The person's name is {}", name);
-
-// Error! borrow of partially moved value: `person` partial move occurs
-//println!("The person struct is {:?}", person);
-
-// `person` cannot be used but `person.age` can be used as it is not moved
-println!("The person's age from person struct is {}", person.age);
+// ONLY modify this line
+println!("{}, {}, {:?}",_name, f.data, f);
 } 
 fn check_color(p: Point) {
     let Point(x, _, _) = p;
@@ -121,4 +108,9 @@ fn check_color(p: Point) {
         email: String::from("contact@im.dev"),
         ..u
     }
+}
+#[derive(Debug)]
+struct File {
+    name: String,
+    data: String,
 }
