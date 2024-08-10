@@ -64,7 +64,7 @@ p.name = String::from("sunfei");
 
 println!("Success!{} and {}", p.name, p.age);
 //6.
-let u1 = User {
+let u1: User = User {
     email: String::from("someone@example.com"),
     username: String::from("sunface"),
     active: true,
@@ -85,6 +85,30 @@ dbg!(&rect1); // Print debug info to stderr
 
 println!("{:?}", rect1); // Print debug info to stdout
 
+//8
+#[derive(Debug)]
+struct Person {
+    name: String,
+    age: Box<u8>,
+}
+
+let person: Person = Person {
+    name: String::from("Alice"),
+    age: Box::new(20),
+};
+
+// `name` is moved out of person, but `age` is referenced
+let Person { name, ref age } = person;
+
+println!("The person's age is {}", age);
+
+println!("The person's name is {}", name);
+
+// Error! borrow of partially moved value: `person` partial move occurs
+//println!("The person struct is {:?}", person);
+
+// `person` cannot be used but `person.age` can be used as it is not moved
+println!("The person's age from person struct is {}", person.age);
 } 
 fn check_color(p: Point) {
     let Point(x, _, _) = p;
