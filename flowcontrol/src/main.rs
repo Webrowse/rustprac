@@ -30,3 +30,35 @@
 
 //     println!("{} -> {}", n, big_n);
 // } 
+//---------------------------------------------------
+
+// fn main() {
+//     for n in 1..100 { // modify this line to make the code work
+//         if n == 100 {
+//             panic!("NEVER LET THIS RUN")
+//         }
+//     }
+
+//     println!("Success!");
+// } 
+
+//---------------------------------------------------
+
+
+// Fix the errors without adding or removing lines
+fn main() {
+    let names: [String; 2] = [String::from("liming"),String::from("hanmeimei")];
+    for name in &names {
+        // Do something with name...
+    }
+
+    println!("{:?}", names);
+
+    let numbers:[i32;3] = [1, 2, 3];
+    // The elements in numbers are Copy，so there is no move here
+    for n in &numbers {
+        // Do something with n...
+    }
+    
+    println!("{:?}", numbers);
+} 
