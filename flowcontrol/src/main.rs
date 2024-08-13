@@ -45,20 +45,31 @@
 //---------------------------------------------------
 
 
-// Fix the errors without adding or removing lines
-fn main() {
-    let names: [String; 2] = [String::from("liming"),String::from("hanmeimei")];
-    for name in &names {
-        // Do something with name...
-    }
+// // Fix the errors without adding or removing lines
+// fn main() {
+//     let names: [String; 2] = [String::from("liming"),String::from("hanmeimei")];
+//     for name in &names {
+//         // Do something with name...
+//     }
 
-    println!("{:?}", names);
+//     println!("{:?}", names);
 
-    let numbers:[i32;3] = [1, 2, 3];
-    // The elements in numbers are Copy，so there is no move here
-    for n in &numbers {
-        // Do something with n...
-    }
+//     let numbers:[i32;3] = [1, 2, 3];
+//     // The elements in numbers are Copy，so there is no move here
+//     for n in &numbers {
+//         // Do something with n...
+//     }
     
-    println!("{:?}", numbers);
-} 
+//     println!("{:?}", numbers);
+// } 
+
+//---------------------------------------------------
+
+// fn main() {
+//     let a:[i32; 4] = [4, 3, 2, 1];
+
+//     // Iterate the indexing and value in 'a'
+//     for (i,v) in a.iter().enumerate() {
+//         println!("The {}th element is {}",i+1,v);
+//     }
+// }
