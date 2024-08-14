@@ -8,6 +8,6 @@ members = [ "Ownership", "basicTypes_Numbers/char-bol-unit", "basicTypes_Numbers
 	"first_6", 
 	"first_7", 
 	"first_8", 
-	"first_9", "flowcontrol",
+	"first_9", "flowcontrol", "patternMatch/match-ifLet",
 
 ] 
