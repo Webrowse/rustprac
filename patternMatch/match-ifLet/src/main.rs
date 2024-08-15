@@ -91,25 +91,98 @@
 
 //5. 
 
-#[derive(Debug)]
-enum MyEnum {
-    Foo,
-    Bar
-}
+// #[derive(Debug)]
+// enum MyEnum {
+//     Foo,
+//     Bar
+// }
 
+// fn main() {
+//     let mut count = 0;
+
+//     let v : Vec<MyEnum> = vec![MyEnum::Foo,MyEnum::Bar,MyEnum::Foo];
+//     for e in v {
+//     println!("Before Count: {} and e is {:?}",count, e);
+//         if matches!(e, MyEnum::Foo){ //e == MyEnum::Foo { // Fix the error by changing only this line
+//             count += 1;
+//              println!("After Count: {} and e is {:?}",count, e);
+//         }
+//     }
+
+//     assert_eq!(count, 2);
+
+//     println!("Success!");
+// }
+
+//6.
+
+
+// fn main() {
+//     let o = Some(7);
+
+//     // Remove the whole `match` block, using `if let` instead 
+//    if let Some(i) = o {
+//     println!("This is a really long string and `{:?}`", i);
+
+//     println!("Success!");
+//    }
+// }
+
+//7.
+
+// // Fill in the blank
+// enum Foo {
+//     Bar(u8)
+// }
+
+// fn main() {
+//     let a : Foo = Foo::Bar(1);
+
+//     if let Foo::Bar(i) = a {
+//         println!("foobar holds the value: {}", i);
+
+//         println!("Success!");
+//     }
+// }
+
+
+//8. 
+
+
+// enum Foo {
+//     Bar,
+//     Baz,
+//     Qux(u32)
+// }
+
+// fn main() {
+//     let a: Foo = Foo::Qux(10);
+
+
+//     match a {
+//         Foo::Bar => println!("match foo::bar"),
+//         Foo::Baz => println!("match foo::baz"),
+//         _ => println!("match others "),
+//     }
+// }
+
+
+//9.
+
+// Fix the errors in-place
 fn main() {
-    let mut count = 0;
-
-    let v : Vec<MyEnum> = vec![MyEnum::Foo,MyEnum::Bar,MyEnum::Foo];
-    for e in v {
-    println!("Before Count: {} and e is {:?}",count, e);
-        if matches!(e, MyEnum::Foo){ //e == MyEnum::Foo { // Fix the error by changing only this line
-            count += 1;
-             println!("After Count: {} and e is {:?}",count, e);
-        }
+    let age: Option<i32> = Some(30);
+    if let Some(age) = age { 
+        
+       assert_eq!(age, 30);
+    } // The new variable `age` goes out of scope here
+    
+    match age {
+        // Match can also introduce a new shadowed variable
+        Some(age) =>  println!("age is a new variable, it's value is {}",age),
+        _ => ()
     }
+ }
 
-    assert_eq!(count, 2);
 
-    println!("Success!");
-}
+
