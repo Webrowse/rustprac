@@ -75,6 +75,10 @@ name = "numbers"
 version = "0.1.0"
 
 [[package]]
+name = "patterns"
+version = "0.1.0"
+
+[[package]]
 name = "slice"
 version = "0.1.0"
 
