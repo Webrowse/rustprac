@@ -94,29 +94,57 @@
 //5.
 
 
-struct Rectangle {
-    width: u32,
-    height: u32,
-}
+// struct Rectangle {
+//     width: u32,
+//     height: u32,
+// }
 
-// Using multiple `impl` blocks to rewrite the code below.
-impl Rectangle {
-    fn area(&self) -> u32 {
-        self.width * self.height
-    }
-}
-impl Rectangle {
+// // Using multiple `impl` blocks to rewrite the code below.
+// impl Rectangle {
+//     fn area(&self) -> u32 {
+//         self.width * self.height
+//     }
+// }
+// impl Rectangle {
 
-    fn can_hold(&self, other: &Rectangle) -> bool {
-        self.width > other.width && self.height > other.height
-    }
-}
+//     fn can_hold(&self, other: &Rectangle) -> bool {
+//         self.width > other.width && self.height > other.height
+//     }
+// }
 
 
 
-fn main() {
-    println!("Success!");
-}
+// fn main() {
+//     println!("Success!");
+// }
 
 //6.
 
+
+#[derive(Debug)]
+
+enum TrafficLightColor {
+    Red,
+    Yellow,
+    Green,
+}
+
+// Implement TrafficLightColor with a method.
+impl TrafficLightColor {
+    fn color(&self)-> &str{
+        match self {
+            TrafficLightColor::Yellow => "yellow",
+            Self::Red => "red",
+            Self::Green => "greeen",
+        }
+    }
+    
+}
+
+fn main() {
+    let c: TrafficLightColor = TrafficLightColor::Yellow;
+
+    assert_eq!(c.color(), "yellow");
+
+    println!("{:?}",c);
+}
