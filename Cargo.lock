@@ -67,7 +67,7 @@ name = "functions"
 version = "0.1.0"
 
 [[package]]
-name = "genericsAndTraits"
+name = "generics"
 version = "0.1.0"
 
 [[package]]
