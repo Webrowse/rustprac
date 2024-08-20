@@ -64,15 +64,39 @@
 //4.
 
 
-// Modify this struct to make the code work
-struct Point<T, S> {
-    x: T,
-    y: S,
-}
+// // Modify this struct to make the code work
+// struct Point<T, S> {
+//     x: T,
+//     y: S,
+// }
 
-fn main() {
-    // DON'T modify this code.
-    let p = Point{x: 5, y : "hello".to_string()};
+// fn main() {
+//     // DON'T modify this code.
+//     let p = Point{x: 5, y : "hello".to_string()};
 
-    println!("Success!");
-}
+//     println!("Success!");
+// }
+
+//5.
+
+
+// // Add generic for Val to make the code work, DON'T modify the code in `main`.
+// struct Val<T> {
+//     val: T,
+// }
+
+// impl<T> Val<T> {
+//     fn value(&self) -> &T {
+//         &self.val
+//     }
+// }
+
+
+// fn main() {
+//     let x: Val<f64> = Val{ val: 3.0 };
+//     let y: Val<String> = Val{ val: "hello".to_string()};
+//     println!("{}, {:?}", x.value(), y.value());
+// }
+
+//6.
+
