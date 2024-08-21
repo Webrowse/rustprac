@@ -19,6 +19,10 @@ name = "char-bol-unit"
 version = "0.1.0"
 
 [[package]]
+name = "constGenerics"
+version = "0.1.0"
+
+[[package]]
 name = "eenum"
 version = "0.1.0"
 
