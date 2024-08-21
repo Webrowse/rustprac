@@ -100,3 +100,49 @@
 
 //6.
 
+// struct Point<T, U> {
+//     x: T,
+//     y: U,
+// }
+
+// impl<T, U> Point<T, U> {
+//     // Implement mixup to make it work, DON'T modify other code.
+//     fn mixup<V, W>(self, romy:Point<V, W>) -> Point<T,W> {
+//         Point{
+//             x: self.x,
+//             y: romy.y,
+//         }
+//     }
+// }
+
+// fn main() {
+//     let p1: Point<i32, i32> = Point { x: 5, y: 10 };
+//     let p2: Point<&str, char> = Point { x: "Hello", y: '中'};
+
+//     let p3 = p1.mixup(p2);
+
+//     assert_eq!(p3.x, 5);
+//     assert_eq!(p3.y, '中');
+
+//     println!("Success!");
+// }
+
+//7.
+
+
+// Fix the errors to make the code work.
+struct Point<T> {
+    x: T,
+    y: T,
+}
+
+impl Point<f64> {
+    fn distance_from_origin(&self) -> f64 {
+        (self.x.powi(2) + self.y.powi(2)).sqrt()
+    }
+}
+
+fn main() {
+    let p:Point<f64> = Point{x: 5f64, y: 10f64};
+    println!("{}",p.distance_from_origin());
+}
