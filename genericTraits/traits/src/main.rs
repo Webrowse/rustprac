@@ -101,40 +101,187 @@
 
 //4.
 
-// Fix the errors, DON'T modify the code in `main`.
-use std::ops;
+// // Fix the errors, DON'T modify the code in `main`.
+// use std::ops;
 
-struct Foo;
-struct Bar;
-#[derive(Debug, PartialEq)]
-struct FooBar;
-#[derive(Debug, PartialEq)]
-struct BarFoo;
+// struct Foo;
+// struct Bar;
+// #[derive(Debug, PartialEq)]
+// struct FooBar;
+// #[derive(Debug, PartialEq)]
+// struct BarFoo;
 
-// The `std::ops::Add` trait is used to specify the functionality of `+`.
-// Here, we make `Add<Bar>` - the trait for addition with a RHS of type `Bar`.
-// The following block implements the operation: Foo + Bar = FooBar
-impl ops::Add<Bar> for Foo {
-    type Output = FooBar;
+// // The `std::ops::Add` trait is used to specify the functionality of `+`.
+// // Here, we make `Add<Bar>` - the trait for addition with a RHS of type `Bar`.
+// // The following block implements the operation: Foo + Bar = FooBar
+// impl ops::Add<Bar> for Foo {
+//     type Output = FooBar;
 
-    fn add(self, _rhs: Bar) -> FooBar {
-        FooBar
+//     fn add(self, _rhs: Bar) -> FooBar {
+//         FooBar
+//     }
+// }
+
+// impl ops::Sub<Bar> for Foo {
+//     type Output = BarFoo;
+
+//     fn sub(self, _rhs: Bar) -> BarFoo {
+//         BarFoo
+//     }
+// }
+
+// fn main() {
+//     // DON'T modify the code below.
+//     // You need to derive some trait for FooBar to make it comparable.
+//     assert_eq!(Foo + Bar, FooBar);
+//     assert_eq!(Foo - Bar, BarFoo);
+
+//     println!("Success!");
+// }
+
+//5.
+
+
+// // Implement `fn summary` to make the code work.
+// // Fix the errors without removing any code line
+// trait Summary {
+//     fn summarize(&self) -> String;
+// }
+
+// #[derive(Debug)]
+// struct Post {
+//     title: String,
+//     author: String,
+//     content: String,
+// }
+
+// impl Summary for Post {
+//     fn summarize(&self) -> String {
+//         format!("The author of post {} is {}", self.title, self.author)
+//     }
+// }
+
+// #[derive(Debug)]
+// struct Weibo {
+//     username: String,
+//     content: String,
+// }
+
+// impl Summary for Weibo {
+//     fn summarize(&self) -> String {
+//         format!("{} published a weibo {}", self.username, self.content)
+//     }
+// }
+
+// fn main() {
+//     let post = Post {
+//         title: "Popular Rust".to_string(),
+//         author: "Sunface".to_string(),
+//         content: "Rust is awesome!".to_string(),
+//     };
+//     let weibo = Weibo {
+//         username: "sunface".to_string(),
+//         content: "Weibo seems to be worse than Tweet".to_string(),
+//     };
+
+//     summary(&post);
+//     summary(&weibo);
+
+//     println!("{:?}", post);
+//     println!("{:?}", weibo);
+// }
+
+// // Implement `fn summary` below.
+// fn summary<T: Summary>(a: &T) {
+//     let output: String= a.summarize();
+
+//     println!("{}", output)
+// }
+
+//6.
+
+
+// struct Sheep {}
+// struct Cow {}
+
+// trait Animal {
+//     fn noise(&self) -> String;
+// }
+
+// impl Animal for Sheep {
+//     fn noise(&self) -> String {
+//         "baaaaah!".to_string()
+//     }
+// }
+
+// impl Animal for Cow {
+//     fn noise(&self) -> String {
+//         "moooooo!".to_string()
+//     }
+// }
+
+// // Returns some struct that implements Animal, but we don't know which one at compile time.
+// // FIX the errors here, you can make a fake random, or you can use trait object.
+// fn random_animal(random_number: f64) -> Box<dyn Animal> {
+//     if random_number < 0.5 {
+//         Box::new(Sheep {})
+//     } else {
+//         Box::new(Cow {})
+//     }
+// }
+
+// fn main() {
+//     let random_number = 0.234;
+//     let animal : Box<dyn Animal> = random_animal(random_number);
+//     println!("You've randomly chosen an animal, and it says {}", animal.noise());
+// }
+
+//7.
+//Trait bounds
+
+// fn main() {
+//     assert_eq!(sum(1, 2), 3);
+// }
+
+// // Implement `fn sum` with trait bound in two ways.
+// fn sum<T: std::ops::Add<Output = T>>(x: T, y: T) -> T {
+//     x + y
+// }
+
+//8.
+
+// FIX the errors.
+struct Pair<T> {
+    x: T,
+    y: T,
+}
+
+impl<T> Pair<T> {
+    fn new(x: T, y: T) -> Self {
+        Self {
+            x,
+            y,
+        }
     }
 }
 
-impl ops::Sub<Bar> for Foo {
-    type Output = BarFoo;
-
-    fn sub(self, _rhs: Bar) -> BarFoo {
-        BarFoo
+impl<T: std::fmt::Debug + PartialOrd> Pair<T> {
+    fn cmp_display(&self) {
+        if self.x >= self.y {
+            println!("The largest member is x = {:?}", self.x);
+        } else {
+            println!("The largest member is y = {:?}", self.y);
+        }
     }
 }
+
+struct Unit(i32);
 
 fn main() {
-    // DON'T modify the code below.
-    // You need to derive some trait for FooBar to make it comparable.
-    assert_eq!(Foo + Bar, FooBar);
-    assert_eq!(Foo - Bar, BarFoo);
+    let pair = Pair{
+        x: Unit(1),
+        y: Unit(3)
+    };
 
-    println!("Success!");
+    pair.cmp_display();
 }
