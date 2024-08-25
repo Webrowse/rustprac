@@ -274,7 +274,7 @@ impl<T: std::fmt::Debug + PartialOrd> Pair<T> {
         }
     }
 }
-
+#[derive(Debug, PartialEq, PartialOrd)]
 struct Unit(i32);
 
 fn main() {
@@ -285,3 +285,6 @@ fn main() {
 
     pair.cmp_display();
 }
+
+
+
