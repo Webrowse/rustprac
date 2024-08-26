@@ -148,34 +148,63 @@
 //Static and Dynamic dispatch
 
 
-trait Foo {
-    fn method(&self) -> String;
+// trait Foo {
+//     fn method(&self) -> String;
+// }
+
+// impl Foo for u8 {
+//     fn method(&self) -> String { format!("u8: {}", *self) }
+// }
+
+// impl Foo for String {
+//     fn method(&self) -> String { format!("string: {}", *self) }
+// }
+
+// // IMPLEMENT below with generics.
+// fn static_dispatch<T: Foo>(a:T) {
+//     a.method();
+// }
+
+// // Implement below with trait objects.
+// fn dynamic_dispatch(a: &dyn Foo){
+//     a.method();
+// }
+
+// fn main() {
+//     let x :u8= 5u8;
+//     let y : String= "Hello".to_string();
+
+//     static_dispatch(x);
+//     dynamic_dispatch(&y);
+
+//     println!("Success!");
+// }
+
+//5.
+//Object safe
+
+
+// Use at least two approaches to make it work.
+// DON'T add/remove any code line.
+trait MyTrait {
+    fn f(&self) -> Box<dyn MyTrait>;
 }
 
-impl Foo for u8 {
-    fn method(&self) -> String { format!("u8: {}", *self) }
+impl MyTrait for u32 {
+    fn f(&self) -> Box<dyn MyTrait> { Box::new(42) }
 }
 
-impl Foo for String {
-    fn method(&self) -> String { format!("string: {}", *self) }
+impl MyTrait for String {
+    fn f(&self) -> Box<dyn MyTrait> { Box::new(self.clone()) }
 }
 
-// IMPLEMENT below with generics.
-fn static_dispatch<T: Foo>(a:T) {
-    a.method();
-}
-
-// Implement below with trait objects.
-fn dynamic_dispatch(a: &dyn Foo){
-    a.method();
+fn my_function(x: Box<dyn MyTrait>) -> Box<dyn MyTrait>{
+    x.f()
 }
 
 fn main() {
-    let x :u8= 5u8;
-    let y : String= "Hello".to_string();
-
-    static_dispatch(x);
-    dynamic_dispatch(&y);
+    my_function(Box::new(13_u32));
+    my_function(Box::new(String::from("abc")));
 
     println!("Success!");
 }
