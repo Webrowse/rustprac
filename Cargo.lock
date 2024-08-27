@@ -107,10 +107,6 @@ name = "string"
 version = "0.1.0"
 
 [[package]]
-name = "string_collection"
-version = "0.1.0"
-
-[[package]]
 name = "stringstype"
 version = "0.1.0"
 
