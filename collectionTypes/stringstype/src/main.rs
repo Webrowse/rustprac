@@ -105,5 +105,5 @@ fn main() {
     
     assert_eq!(s, s1);
 
-    println!("Success!");
+   println!("Success!");
 }
