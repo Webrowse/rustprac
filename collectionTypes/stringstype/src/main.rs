@@ -91,19 +91,67 @@
 //5.
 
 
+// // FILL in the blanks
+// fn main() {
+//     let mut s = String::new();  //Vec<u8>
+//     s.push_str("hello");
+
+//     // Some bytes, in a vector
+//     let v: Vec<u8> = vec![104, 101, 108, 108, 111];
+
+//     // Turn a byte's vector into a String
+//     let s1: String = String::from_utf8(v).unwrap();
+    
+    
+//     assert_eq!(s, s1);
+
+//    println!("Success!");
+// }
+
+//6.
+
+// // Modify the code below to print out: 
+// // 25
+// // 25
+// // 25
+// // Here, there’s no need to allocate more memory inside the loop.
+// fn main() {
+//     let mut s = String::with_capacity(25);
+
+//     println!("{}", s.capacity());
+
+//     for  _ in 0..100 {
+//         s.push_str("hello");
+//         println!("{}", s.capacity());
+//     }
+
+//     println!("Success!");
+// }
+
+//7.
+
+
 // FILL in the blanks
+use std::mem;
+
 fn main() {
-    let mut s = String::new();
-    __;
+    let story = String::from("Rust By Practice");
 
-    // Some bytes, in a vector
-    let v = vec![104, 101, 108, 108, 111];
+    // Prevent automatically dropping of the String's data
+    let story = mem::ManuallyDrop::new(story);
 
-    // Turn a byte's vector into a String
-    let s1 = __;
-    
-    
-    assert_eq!(s, s1);
+    let ptr = story.as_ptr() as *mut u8;
+    let len = story.len();
+    let capacity = story.capacity();
 
-   println!("Success!");
+    assert_eq!(16, len);
+
+    // We can rebuild a String out of ptr, len, and capacity. This is all
+    // unsafe because we are responsible for making sure the components are
+    // valid:
+    let s = unsafe { String::from_raw_parts(ptr, len, capacity) };
+
+    assert_eq!(*story, s);
+
+    println!("Success!");
 }
