@@ -99,6 +99,10 @@ name = "numbers"
 version = "0.1.0"
 
 [[package]]
+name = "otherConversions"
+version = "0.1.0"
+
+[[package]]
 name = "patterns"
 version = "0.1.0"
 
