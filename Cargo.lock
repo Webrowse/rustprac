@@ -103,6 +103,10 @@ name = "otherConversions"
 version = "0.1.0"
 
 [[package]]
+name = "panicHandle"
+version = "0.1.0"
+
+[[package]]
 name = "patterns"
 version = "0.1.0"
 
