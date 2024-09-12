@@ -54,22 +54,52 @@
 
 
 
-use core::fmt;
-struct Structure(i32);
+// use core::fmt;
+// struct Structure(i32);
 
 
-struct Deep(Structure);
+// struct Deep(Structure);
 
-impl fmt::Debug for Deep {
-    fn fmt(&self, f: &mut fmt::Formatter) -> fmt::Result {
-        write!(f, "{}", self.0.0)
-    }
+// impl fmt::Debug for Deep {
+//     fn fmt(&self, f: &mut fmt::Formatter) -> fmt::Result {
+//         write!(f, "{}", self.0.0)
+//     }
 
+// }
+// fn main() {    
+//     // The problem with `derive` is there is no control over how
+//     // the results look. What if I want this to just show a `7`?
+
+//     /* Make it print: Now 7 will print! */
+//     println!("Now {:?} will print!", Deep(Structure(7)));
+// }
+
+//Display
+
+
+
+/* Make it work*/
+use std::fmt;
+
+struct Point2D {
+    x: f64,
+    y: f64,
 }
-fn main() {    
-    // The problem with `derive` is there is no control over how
-    // the results look. What if I want this to just show a `7`?
 
-    /* Make it print: Now 7 will print! */
-    println!("Now {:?} will print!", Deep(Structure(7)));
+impl fmt::Display for Point2D {
+    fn fmt(&self, f: &mut fmt::Formatter) -> fmt::Result {
+        write!(f, "Display: {} + {}i", self.x, self.y)
+}
+}
+impl fmt::Debug for Point2D {
+    fn fmt(&self, f: &mut fmt::Formatter) -> fmt::Result {
+        write!(f, "Debug: Complex {{ real: {}, img: {} }}", self.x,self.y)
+}
+}
+fn main() {
+    let point: Point2D= Point2D { x: 3.3, y: 7.2 };
+    assert_eq!(format!("{}",point), "Display: 3.3 + 7.2i");
+    assert_eq!(format!("{:?}",point), "Debug: Complex { real: 3.3, imag: 7.2 }");
+    
+    println!("Success!");
 }
