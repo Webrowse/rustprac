@@ -19,6 +19,10 @@ name = "asCohersion"
 version = "0.1.0"
 
 [[package]]
+name = "basicLifetime"
+version = "0.1.0"
+
+[[package]]
 name = "borrowing"
 version = "0.1.0"
 
@@ -112,6 +116,10 @@ version = "0.1.0"
 
 [[package]]
 name = "patterns"
+version = "0.1.0"
+
+[[package]]
+name = "print-format"
 version = "0.1.0"
 
 [[package]]

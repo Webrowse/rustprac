@@ -8,6 +8,6 @@ members = [ "Ownership", "basicTypes_Numbers/char-bol-unit", "basicTypes_Numbers
 	"first_6", 
 	"first_7", 
 	"first_8", 
-	"first_9", "flowcontrol", "genericTraits/constGenerics", "genericTraits/generics", "genericTraits/traitObject", "genericTraits/traits", "method", "patternMatch/match-ifLet", "patternMatch/patterns", "typeConversion/asCohersion", "typeConversion/from-into", "typeConversion/otherConversions",
+	"first_9", "flowcontrol", "genericTraits/constGenerics", "genericTraits/generics", "genericTraits/traitObject", "genericTraits/traits", "lifetimeRust/basicLifetime", "method", "patternMatch/match-ifLet", "patternMatch/patterns", "print-format", "typeConversion/asCohersion", "typeConversion/from-into", "typeConversion/otherConversions",
 
 ] 
