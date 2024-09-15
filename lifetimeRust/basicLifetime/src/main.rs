@@ -142,24 +142,76 @@
 
 
 
-#[derive(Debug)]
-struct NoCopyType {}
+// #[derive(Debug)]
+// struct NoCopyType {}
 
-#[derive(Debug)]
-#[allow(dead_code)]
-struct Example<'a, 'b> {
-    a: &'a u32,
-    b: &'b NoCopyType
+// #[derive(Debug)]
+// #[allow(dead_code)]
+// struct Example<'a, 'b> {
+//     a: &'a u32,
+//     b: &'b NoCopyType
+// }
+
+// /* Fix function signature */
+// fn fix_me<'a>(foo: &'a Example) -> &'a NoCopyType
+// { foo.b }
+
+// fn main()
+// {
+//     let no_copy = NoCopyType {};
+//     let example = Example { a: &1, b: &no_copy };
+//     fix_me(&example);
+//     println!("Success!")
+// }
+
+//9. Methods
+
+// /* Make it work by adding proper lifetime annotations */
+// struct ImportantExcerpt{
+//     part: &'static str,
+// }
+
+// impl ImportantExcerpt {
+//     fn level<'a>(&self) -> i32 {
+//         3
+//     }
+// }
+
+// fn main() {}
+
+
+//10. elision
+
+/* Remove all the lifetimes that can be elided */
+
+fn input(x: &i32) {
+    println!("`annotated_input`: {}", x);
 }
 
-/* Fix function signature */
-fn fix_me<'a>(foo: &'a Example) -> &'a NoCopyType
-{ foo.b }
+fn pass(x: &i32) -> &i32 { x }
 
-fn main()
-{
-    let no_copy = NoCopyType {};
-    let example = Example { a: &1, b: &no_copy };
-    fix_me(&example);
-    println!("Success!")
+fn longest<'a, 'b>(x: &'a str, y: &'b str) -> &'a str {
+    x
 }
+
+struct Owner(i32);
+
+impl Owner {
+    // Annotate lifetimes as in a standalone function.
+    fn add_one(&mut self) { self.0 += 1; }
+    fn print(&self) {
+        println!("`print`: {}", self.0);
+    }
+}
+
+struct Person<'a> {
+    age: u8,
+    name: &'a str,
+}
+
+enum Either<'a> {
+    Num(i32),
+    Ref(&'a i32),
+}
+
+fn main() {}
