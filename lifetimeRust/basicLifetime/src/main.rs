@@ -184,34 +184,149 @@
 
 /* Remove all the lifetimes that can be elided */
 
-fn input(x: &i32) {
-    println!("`annotated_input`: {}", x);
+// fn input(x: &i32) {
+//     println!("`annotated_input`: {}", x);
+// }
+
+// fn pass(x: &i32) -> &i32 { x }
+
+// fn longest<'a, 'b>(x: &'a str, y: &'b str) -> &'a str {
+//     x
+// }
+
+// struct Owner(i32);
+
+// impl Owner {
+//     // Annotate lifetimes as in a standalone function.
+//     fn add_one(&mut self) { self.0 += 1; }
+//     fn print(&self) {
+//         println!("`print`: {}", self.0);
+//     }
+// }
+
+// struct Person<'a> {
+//     age: u8,
+//     name: &'a str,
+// }
+
+// enum Either<'a> {
+//     Num(i32),
+//     Ref(&'a i32),
+// }
+
+// fn main() {}
+
+// &'STATIC AND T:'STATIC
+
+
+/* Fill in the blank in two ways */
+// fn main() {
+//     let v: &'static str ="hello";
+//     need_static(v);
+
+//     println!("Success!")
+// }
+
+// fn need_static(r : &'static str) {
+//     assert_eq!(r, "hello");
+// }
+
+//2.
+
+// #[derive(Debug)]
+// struct Config {
+//     a: String,
+//     b: String,
+// }
+// static mut config: Option<&mut Config> = None;
+
+// /* Make it work without changing the function signatures of `init`*/
+// fn init() -> Option<&'static mut Config> {
+//     Some(&mut Config {
+//         a: "A".to_string(),
+//         b: "B".to_string(),
+//     })
+// }
+
+
+// fn main() {
+//     unsafe {
+//         config = init();
+
+//         println!("{:?}",config)
+//     }
+// }
+
+//3.
+
+
+// fn main() {
+//     let static_string:&'static str = "I'm in read-only memory";
+//     {
+//         // Make a `string` literal and print it:
+//         println!("static_string: {}", static_string);
+
+//         // When `static_string` goes out of scope, the reference
+//         // can no longer be used, but the data remains in the binary.
+//     }
+
+//     println!("static_string reference remains alive: {}", static_string);
+// }
+
+//4.
+
+// // Make a constant with `'static` lifetime.
+// static NUM: i32 = 18;
+
+// // Returns a reference to `NUM` where its `'static`
+// // lifetime is coerced to that of the input argument.
+// fn coerce_static<'a>(_: &'a i32) -> &'a i32 {
+//     &NUM
+// }
+
+// fn main() {
+//     {
+//         // Make an integer to use for `coerce_static`:
+//         let lifetime_num = 9;
+
+//         // Coerce `NUM` to lifetime of `lifetime_num`:
+//         let coerced_static = coerce_static(&lifetime_num);
+
+//         println!("coerced_static: {}", coerced_static);
+//     }
+
+//     println!("NUM: {} stays accessible!", NUM);
+// }
+
+//5.
+
+/* Make it work */
+use std::fmt::Debug;
+
+fn print_it<T: Debug + 'static>( input: T) {
+    println!( "'static value passed in is: {:?}", input );
 }
 
-fn pass(x: &i32) -> &i32 { x }
-
-fn longest<'a, 'b>(x: &'a str, y: &'b str) -> &'a str {
-    x
+fn print_it1( input: impl Debug + 'static ) {
+    println!( "'static value passed in is: {:?}", input );
 }
 
-struct Owner(i32);
 
-impl Owner {
-    // Annotate lifetimes as in a standalone function.
-    fn add_one(&mut self) { self.0 += 1; }
-    fn print(&self) {
-        println!("`print`: {}", self.0);
-    }
+fn print_it2<T: Debug + 'static>( input: &T) {
+    println!( "'static value passed in is: {:?}", input );
 }
 
-struct Person<'a> {
-    age: u8,
-    name: &'a str,
-}
+fn main() {
+    // i is owned and contains no references, thus it's 'static:
+    let i = 5;
+    print_it(i);
 
-enum Either<'a> {
-    Num(i32),
-    Ref(&'a i32),
-}
+    // oops, &i only has the lifetime defined by the scope of
+    // main(), so it's not 'static:
+    print_it(&i);
 
-fn main() {}
+    print_it1(&i);
+
+    // but this one WORKS !
+    print_it2(&i);
+}
