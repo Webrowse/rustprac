@@ -318,7 +318,7 @@ fn print_it2<T: Debug + 'static>( input: &T) {
 
 fn main() {
     // i is owned and contains no references, thus it's 'static:
-    let i = 5;
+    static i:i32 = 5;
     print_it(i);
 
     // oops, &i only has the lifetime defined by the scope of
@@ -327,6 +327,6 @@ fn main() {
 
     print_it1(&i);
 
-    // but this one WORKS !
+    // // but this one WORKS !
     print_it2(&i);
 }
