@@ -11,6 +11,10 @@ name = "Result"
 version = "0.1.0"
 
 [[package]]
+name = "advancedLifetime"
+version = "0.1.0"
+
+[[package]]
 name = "array"
 version = "0.1.0"
 
@@ -28,6 +32,10 @@ version = "0.1.0"
 
 [[package]]
 name = "char-bol-unit"
+version = "0.1.0"
+
+[[package]]
+name = "closures"
 version = "0.1.0"
 
 [[package]]
