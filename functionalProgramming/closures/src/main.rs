@@ -190,16 +190,70 @@
 
 //8.
 
-/* Fill in the blank */
-fn main() {
-    let mut s = String::new();
+// /* Fill in the blank */
+// fn main() {
+//     let mut s = String::new();
 
-    let update_string = |str| -> String {s.push_str(str); s };
+//     let update_string = |str| -> String {s.push_str(str); s };
 
-    exec(update_string);
-}
+//     exec(update_string);
+// }
 
-fn exec<'a, F: FnOnce(&'a str)-> String>( f: F) {
-    f("hello");
-}
+// fn exec<'a, F: FnOnce(&'a str)-> String>( f: F) {
+//     f("hello");
+// }
 
+//9. Input functions
+
+
+// /* Implement `call_me` to make it work */
+// fn call_me<F: Fn()> (f : F){
+//     f();
+// }
+
+// fn function() {
+//     println!("I'm a function!");
+// }
+
+// fn main() {
+//     let closure = || println!("I'm a closure!");
+
+//     call_me(closure);
+//     call_me(function);
+// }
+
+//10,
+
+// /* Fill in the blank using two approaches,
+//  and fix the error */
+// //  fn create_fn() -> impl Fn(i32) -> i32{
+//  fn create_fn() -> Box<dyn Fn(i32) -> i32>{
+//     let num:i32 = 5;
+
+//     // How does the following closure capture the environment variable `num`
+//     // &T, &mut T, T ?
+//     // move |x| x + num
+//     Box::new(move |x| x + num)
+// }
+
+
+// fn main() {
+//     let fn_plain = create_fn();
+//     fn_plain(1);
+// }
+
+//11
+
+/* Fill in the blank and fix the error*/
+fn factory(x:i32) -> Box<dyn Fn(i32) -> i32>{
+
+    let num: i32 = 5;
+
+    if x > 1{
+        Box::new(move |x| x + num)
+    } else {
+        Box::new(move |x| x + num)
+    }
+} 
+
+fn main(){}
