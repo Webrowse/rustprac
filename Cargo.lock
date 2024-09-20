@@ -103,6 +103,10 @@ name = "hashmapColection"
 version = "0.1.0"
 
 [[package]]
+name = "iterators"
+version = "0.1.0"
+
+[[package]]
 name = "match-ifLet"
 version = "0.1.0"
 
